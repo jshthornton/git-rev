@@ -2,7 +2,7 @@ var exec = require('child_process').exec
 
 function _command (cmd, cb) {
   exec(cmd, { cwd: __dirname }, function (err, stdout, stderr) {
-    cb(stdout.split('\n').join(''))
+    cb(err, stdout.split('\n').join(''))
   })
 }
 
