@@ -7,22 +7,22 @@ access git revision state in node
 ``` js
 var git = require('git-rev')
 
-git.short(function (str) {
+git.short(function (err, str) {
   console.log('short', str)
   // => aefdd94
 })
 
-git.long(function (str) {
+git.long(function (err, str) {
   console.log('long', str)
   // => aefdd946ea65c88f8aa003e46474d57ed5b291d1
 })
 
-git.branch(function (str) {
+git.branch(function (err, str) {
   console.log('branch', str)
   // => master
 })
 
-git.tag(function (str) {
+git.tag(function (err, str) {
   console.log('tag', str)
   // => 0.1.0
 })
@@ -35,11 +35,11 @@ git.tag(function (str) {
 var git = require('git-rev')
 ```
 
-## .log(function (array) { ... })
+## .log(function (err, array) { ... })
 return the git log of `process.cwd()` as an array
 
 ``` js
-git.log(function (array) {
+git.log(function (err, array) {
   console.log('log', array)
   // [ [ 'aefdd946ea65c88f8aa003e46474d57ed5b291d1',
   //     'add description',
@@ -56,16 +56,16 @@ git.log(function (array) {
 })
 ```
 
-## .short(function (commit) { ... })
+## .short(function (err, commit) { ... })
 return the result of `git rev-parse --short HEAD`
 
-## .long(function (commit) { ... })
+## .long(function (err, commit) { ... })
 return the result of `git rev-parse HEAD`
 
-## .tag(function (tag) { ... })
+## .tag(function (err, tag) { ... })
 return the current tag
 
-## .branch(function (branch) { ... })
+## .branch(function (err, branch) { ... })
 return the current branch
 
 # Install
